@@ -1,11 +1,11 @@
 entity Utilisateur {
-  id Integer,
+
   nom String,
   adresse String,
   email String
 }
 entity Client{
-    idClient Integer,
+  
     nom String,
     postnom String,
     prenom String,
@@ -14,7 +14,7 @@ entity Client{
 }
 
 entity Adresse {
-  idAdresse Integer
+ 
   numero String,
   rue String,
   commune String,
@@ -34,7 +34,7 @@ entity LigneCommandeFournisseur {
 }
 
 entity Produit {
-  idProduit Integert
+
   reference String,
   description String,
   prix Float,
@@ -48,7 +48,7 @@ entity Categorie {
 }
 
 entity Commande {
-  idCommande Integer,
+ 
   date Instant,
   remise Float,
   statut STATUS
@@ -107,4 +107,3 @@ relationship ManyToOne {
 
 
 paginate all with pagination
-
