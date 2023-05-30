@@ -1,0 +1,110 @@
+entity Utilisateur {
+  id Integer,
+  nom String,
+  adresse String,
+  email String
+}
+entity Client{
+    idClient Integer,
+    nom String,
+    postnom String,
+    prenom String,
+    numero  String,
+    email String
+}
+
+entity Adresse {
+  idAdresse Integer
+  numero String,
+  rue String,
+  commune String,
+  ville String,
+  pays String
+}
+
+entity CommandeFournisseur {
+  numero String,
+  dateDebut Instant,
+  dateFin Instant,
+  statut String
+}
+
+entity LigneCommandeFournisseur {
+  quantite Integer
+}
+
+entity Produit {
+  idProduit Integert
+  reference String,
+  description String,
+  prix Float,
+  quantiteStock Integer,
+  seuilReapprovisionnement Integer
+}
+
+entity Categorie {
+  idCategorie Integer
+  nom String
+}
+
+entity Commande {
+  idCommande Integer,
+  date Instant,
+  remise Float,
+  statut STATUS
+}
+
+entity ProduitCommande {
+  
+  quantite Integer
+}
+
+entity Fournisseur {
+  nom String,
+  email String
+  telephone String
+}
+
+
+enum STATUS {
+    PENDING(Attante),
+    SEND(Envoyer)
+}
+
+relationship ManyToOne {
+     Produit{categorie} to Categorie
+}
+relationship OneToOne {
+    Client{adresse} to Adresse
+}
+relationship OneToOne {
+   Fournisseur{adresse} to Adresse
+}
+relationship ManyToOne {
+    Commande{client} to Client
+  
+}
+relationship ManyToOne {
+  ProduitCommande{produit} to Produit
+}
+relationship OneToMany{
+  Commande{produitCommande} to ProduitCommande
+}
+
+relationship OneToMany {
+   CommandeFournisseur{lignecommande} to LigneCommandeFournisseur
+}
+
+
+relationship ManyToOne {
+  CommandeFournisseur{fournisseur} to Fournisseur
+}
+
+relationship ManyToOne {
+  LigneCommandeFournisseur{produit} to Produit
+}
+
+
+
+paginate all with pagination
+
