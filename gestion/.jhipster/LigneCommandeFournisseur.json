@@ -1,0 +1,32 @@
+{
+  "applications": ["gestionCommerce"],
+  "changelogDate": "20230531091059",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ligne_commande_fournisseur",
+  "fields": [
+    {
+      "fieldName": "quantite",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LigneCommandeFournisseur",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "produit",
+      "relationshipName": "produit",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "commandeFournisseur",
+      "otherEntityRelationshipName": "lignecommande",
+      "relationshipName": "commandeFournisseur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

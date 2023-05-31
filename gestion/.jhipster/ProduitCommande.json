@@ -1,0 +1,32 @@
+{
+  "applications": ["gestionCommerce"],
+  "changelogDate": "20230531091103",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "produit_commande",
+  "fields": [
+    {
+      "fieldName": "quantite",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProduitCommande",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "produit",
+      "relationshipName": "produit",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "produitCommande",
+      "relationshipName": "commande",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

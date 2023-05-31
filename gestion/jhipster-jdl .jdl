@@ -1,0 +1,133 @@
+application {
+  config {
+    baseName gestionCommerce
+    applicationType monolith
+    authenticationType jwt
+    buildTool gradle
+    cacheProvider caffeine
+    clientFramework react
+    clientPackageManager npm
+    clientTheme darkly
+    databaseType sql
+    devDatabaseType h2Disk
+    languages [en,fr]
+    nativeLanguage en
+    packageName com.kadilab.com.mycompany.myapp
+	prodDatabaseType postgresql
+    serverPort 8080
+    testFrameworks [cypress]
+  }
+  
+  entities *
+}
+
+
+entity Utilisateur {
+
+  nom String,
+  adresse String,
+  email String
+}
+entity Client{
+    
+    nom String,
+    postnom String,
+    prenom String,
+    numero  String,
+    email String
+}
+
+entity Adresse {
+
+  numero String,
+  rue String,
+  commune String,
+  ville String,
+  pays String
+}
+
+entity CommandeFournisseur {
+  numero String,
+  dateDebut Instant,
+  dateFin Instant,
+  statut String
+}
+
+entity LigneCommandeFournisseur {
+  quantite Integer
+}
+
+entity Produit {
+  reference String,
+  description String,
+  prix Float,
+  quantiteStock Integer,
+  seuilReapprovisionnement Integer
+}
+
+entity Categorie {
+
+  nom String
+}
+
+entity Commande {
+  
+  date Instant,
+  remise Float,
+  statut STATUS
+}
+
+entity ProduitCommande {
+  
+  quantite Integer
+}
+
+entity Fournisseur {
+  nom String,
+  email String
+  telephone String
+}
+
+
+enum STATUS {
+    PENDING(Attante),
+    SEND(Envoyer)
+}
+
+relationship ManyToOne {
+     Produit{categorie} to Categorie
+}
+relationship OneToOne {
+    Client{adresse} to Adresse
+}
+relationship OneToOne {
+   Fournisseur{adresse} to Adresse
+}
+relationship ManyToOne {
+    Commande{client} to Client
+  
+}
+relationship ManyToOne {
+  ProduitCommande{produit} to Produit
+}
+relationship OneToMany{
+  Commande{produitCommande} to ProduitCommande
+}
+
+relationship OneToMany {
+   CommandeFournisseur{lignecommande} to LigneCommandeFournisseur
+}
+
+
+relationship ManyToOne {
+  CommandeFournisseur{fournisseur} to Fournisseur
+}
+
+relationship ManyToOne {
+  LigneCommandeFournisseur{produit} to Produit
+}
+
+
+
+paginate all with pagination
+

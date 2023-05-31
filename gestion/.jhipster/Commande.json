@@ -1,0 +1,41 @@
+{
+  "applications": ["gestionCommerce"],
+  "changelogDate": "20230531091102",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "commande",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "remise",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "STATUS",
+      "fieldValues": "PENDING (Attante),SEND (Envoyer)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Commande",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "produitCommande",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "produitCommande",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "client",
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

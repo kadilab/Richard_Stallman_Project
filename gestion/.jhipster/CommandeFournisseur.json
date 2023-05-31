@@ -1,0 +1,44 @@
+{
+  "applications": ["gestionCommerce"],
+  "changelogDate": "20230531091058",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "commande_fournisseur",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CommandeFournisseur",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "ligneCommandeFournisseur",
+      "otherEntityRelationshipName": "commandeFournisseur",
+      "relationshipName": "lignecommande",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fournisseur",
+      "relationshipName": "fournisseur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

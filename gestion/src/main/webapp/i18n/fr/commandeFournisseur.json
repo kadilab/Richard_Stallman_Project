@@ -1,0 +1,29 @@
+{
+  "gestionCommerceApp": {
+    "commandeFournisseur": {
+      "home": {
+        "title": "CommandeFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Commande Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Commande Fournisseur",
+        "notFound": "Aucun Commande Fournisseur trouvé"
+      },
+      "created": "Un nouveau Commande Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Commande Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Commande Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Commande Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Commande Fournisseur"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "statut": "Statut",
+      "lignecommande": "Lignecommande",
+      "fournisseur": "Fournisseur"
+    }
+  }
+}

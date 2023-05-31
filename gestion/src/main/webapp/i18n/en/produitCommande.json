@@ -1,0 +1,26 @@
+{
+  "gestionCommerceApp": {
+    "produitCommande": {
+      "home": {
+        "title": "Produit Commandes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Produit Commande",
+        "createOrEditLabel": "Create or edit a Produit Commande",
+        "notFound": "No Produit Commandes found"
+      },
+      "created": "A new Produit Commande is created with identifier {{ param }}",
+      "updated": "A Produit Commande is updated with identifier {{ param }}",
+      "deleted": "A Produit Commande is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Produit Commande {{ id }}?"
+      },
+      "detail": {
+        "title": "Produit Commande"
+      },
+      "id": "ID",
+      "quantite": "Quantite",
+      "produit": "Produit",
+      "commande": "Commande"
+    }
+  }
+}

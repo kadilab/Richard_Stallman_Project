@@ -1,0 +1,9 @@
+{
+  "gestionCommerceApp": {
+    "STATUS": {
+      "null": "",
+      "PENDING": "Attante",
+      "SEND": "Envoyer"
+    }
+  }
+}

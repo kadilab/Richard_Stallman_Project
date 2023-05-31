@@ -1,0 +1,26 @@
+{
+  "gestionCommerceApp": {
+    "ligneCommandeFournisseur": {
+      "home": {
+        "title": "Ligne Commande Fournisseurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ligne Commande Fournisseur",
+        "createOrEditLabel": "Create or edit a Ligne Commande Fournisseur",
+        "notFound": "No Ligne Commande Fournisseurs found"
+      },
+      "created": "A new Ligne Commande Fournisseur is created with identifier {{ param }}",
+      "updated": "A Ligne Commande Fournisseur is updated with identifier {{ param }}",
+      "deleted": "A Ligne Commande Fournisseur is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ligne Commande Fournisseur {{ id }}?"
+      },
+      "detail": {
+        "title": "Ligne Commande Fournisseur"
+      },
+      "id": "ID",
+      "quantite": "Quantite",
+      "produit": "Produit",
+      "commandeFournisseur": "Commande Fournisseur"
+    }
+  }
+}
