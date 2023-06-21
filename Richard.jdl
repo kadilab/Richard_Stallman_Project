@@ -1,109 +1,94 @@
-entity Utilisateur {
-
-  nom String,
-  adresse String,
-  email String
-}
-entity Client{
-  
-    nom String,
-    postnom String,
-    prenom String,
-    numero  String,
-    email String
-}
-
-entity Adresse {
- 
-  numero String,
-  rue String,
-  commune String,
-  ville String,
-  pays String
-}
-
-entity CommandeFournisseur {
-  numero String,
-  dateDebut Instant,
-  dateFin Instant,
-  statut String
-}
-
-entity LigneCommandeFournisseur {
-  quantite Integer
+application {
+       config {
+      baseName gestionCommerce
+      applicationType monolith
+      authenticationType jwt
+      buildTool maven
+      cacheProvider caffeine
+      clientFramework react
+      clientPackageManager npm
+      clientTheme darkly
+      databaseType sql
+      devDatabaseType h2Disk
+      languages [en,fr]
+      nativeLanguage en
+      packageName com.kadilab.gestion
+      prodDatabaseType postgresql
+      serverPort 8080
+    }
+  entities *
 }
 
 entity Produit {
-
-  reference String,
+  reference String required,
+  nom String required,
+  image String,
   description String,
-  prix Float,
-  quantiteStock Integer,
-  seuilReapprovisionnement Integer
-}
-
-entity Categorie {
-  idCategorie Integer
-  nom String
-}
-
-entity Commande {
- 
-  date Instant,
-  remise Float,
-  statut STATUS
-}
-
-entity ProduitCommande {
+  prix BigDecimal required,
+  quantiteStock Integer required,
   
-  quantite Integer
+}
+
+entity Pannier {
+  reference String required
+  statut String required,
+  dateCommande ZonedDateTime required,
+  total BigDecimal required,
+  remise BigDecimal
+}
+
+entity LignePannier {
+  quantite Integer required
+}
+
+entity Client {
+  nom String required,
+  prenom String required,
+  email String required,
+  adresse String required,
+  username String required,
+  password String required
 }
 
 entity Fournisseur {
-  nom String,
-  email String
-  telephone String
+  nom String required,
+  postnom String required,
+  prenom String required,
+  adresse String required,
+  telephone String required,
+  email String required,
 }
 
-
-enum STATUS {
-    PENDING(Attante),
-    SEND(Envoyer)
+entity CommandeFournisseur {
+  reference String required,
+  statut String required,
+  dateCommande ZonedDateTime required,
+  dateLivraison ZonedDateTime,
+  quantite BigDecimal required,
+  total BigDecimal required,
 }
 
-relationship ManyToOne {
-     Produit{categorie} to Categorie
+entity Categorie{
+  nom String required,
 }
-relationship OneToOne {
-    Client{adresse} to Adresse
+
+entity User {
+  login String required,
+  motDePasse String required
 }
-relationship OneToOne {
-   Fournisseur{adresse} to Adresse
-}
-relationship ManyToOne {
-    Commande{client} to Client
-  
-}
-relationship ManyToOne {
-  ProduitCommande{produit} to Produit
-}
-relationship OneToMany{
-  Commande{produitCommande} to ProduitCommande
-}
+
 
 relationship OneToMany {
-   CommandeFournisseur{lignecommande} to LigneCommandeFournisseur
-}
-
-
-relationship ManyToOne {
-  CommandeFournisseur{fournisseur} to Fournisseur
+  Categorie{produit} to Produit
+  Produit{lignecmd} to LignePannier,
+  Fournisseur{commandes} to CommandeFournisseur,
 }
 
 relationship ManyToOne {
-  LigneCommandeFournisseur{produit} to Produit
+  Pannier{client} to Client
+  LignePannier{pannier} to Pannier
+  CommandeFournisseur{user} to User
 }
-
-
-
-paginate all with pagination
+relationship OneToOne {
+  CommandeFournisseur{produit} to Produit
+}
